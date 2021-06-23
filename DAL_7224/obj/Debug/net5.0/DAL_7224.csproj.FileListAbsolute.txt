@@ -1,0 +1,15 @@
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\bin\Debug\net5.0\DAL_7224.deps.json
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\bin\Debug\net5.0\DAL_7224.runtimeconfig.json
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\bin\Debug\net5.0\DAL_7224.runtimeconfig.dev.json
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\bin\Debug\net5.0\DAL_7224.dll
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\bin\Debug\net5.0\ref\DAL_7224.dll
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\bin\Debug\net5.0\DAL_7224.pdb
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.csprojAssemblyReference.cache
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.GeneratedMSBuildEditorConfig.editorconfig
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.AssemblyInfoInputs.cache
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.AssemblyInfo.cs
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.csproj.CoreCompileInputs.cache
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.dll
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\ref\DAL_7224.dll
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.pdb
+C:\WIUT\new-wad\WAD_CW_WeatherApp\DAL_7224\obj\Debug\net5.0\DAL_7224.genruntimeconfig.cache
