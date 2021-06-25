@@ -6149,19 +6149,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\akhad_m5bde95\\.nuget\\packages\\": {}
+    "C:\\Users\\akhad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WIUT\\new-wad\\WAD_CW_WeatherApp\\DAL_7224\\DAL_7224.csproj",
+      "projectUniqueName": "c:\\WIUT\\new-wad\\WAD_CW_WeatherApp\\DAL_7224\\DAL_7224.csproj",
       "projectName": "DAL_7224",
-      "projectPath": "C:\\WIUT\\new-wad\\WAD_CW_WeatherApp\\DAL_7224\\DAL_7224.csproj",
-      "packagesPath": "C:\\Users\\akhad_m5bde95\\.nuget\\packages\\",
-      "outputPath": "C:\\WIUT\\new-wad\\WAD_CW_WeatherApp\\DAL_7224\\obj\\",
+      "projectPath": "c:\\WIUT\\new-wad\\WAD_CW_WeatherApp\\DAL_7224\\DAL_7224.csproj",
+      "packagesPath": "C:\\Users\\akhad\\.nuget\\packages\\",
+      "outputPath": "c:\\WIUT\\new-wad\\WAD_CW_WeatherApp\\DAL_7224\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\akhad_m5bde95\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\akhad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
