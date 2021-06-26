@@ -1,4 +1,5 @@
 using DAL_7224.DBO;
+using DAL_7224.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 
 namespace WAD_CW_WeatherApp
 {
@@ -23,9 +25,9 @@ namespace WAD_CW_WeatherApp
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews();
-            services.AddDbContext<ForecastDBContext>
-                (option => option.UseSqlServer(Configuration.GetConnectionString("ForecastDb")));
+            services.AddControllers();
+            services.AddScoped<IRepository<DayForecast>, DayForecastRep>();
+            services.AddDbContext<ForecastDBContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ForecastDb")));
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
