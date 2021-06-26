@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL_7224.Migrations
 {
     [DbContext(typeof(ForecastDBContext))]
-    [Migration("20210623063740_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210626063933_InitDb")]
+    partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -47,7 +47,7 @@ namespace DAL_7224.Migrations
 
                     b.HasKey("DayForecastId");
 
-                    b.ToTable("DayForecast");
+                    b.ToTable("DayForecasts");
                 });
 
             modelBuilder.Entity("DAL_7224.DBO.HourForecast", b =>

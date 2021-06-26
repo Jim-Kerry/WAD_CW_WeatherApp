@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "p1fnRBD45wzBs7Y3QZtsXNGc9CPqUSBJtLVS0/hoUk4OdbuphP7yKBq6sY7JfxH5LJ0RIrJMba6jEQ0KH3tgwA==",
+  "dgSpecHash": "dkD77fT7KQ95kMD+5oJfiqUhlRvF4hYBJCwrWa1Agh+CG6zgh0Ym6Yo1PdlZrfQhv91at2beUKfwdgjLUmgTsw==",
   "success": true,
   "projectFilePath": "c:\\WIUT\\new-wad\\WAD_CW_WeatherApp\\DAL_7224\\DAL_7224.csproj",
   "expectedPackageFiles": [
@@ -102,6 +102,8 @@
     "C:\\Users\\akhad\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\akhad\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\akhad\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\akhad\\.nuget\\packages\\system.text.encodings.web\\5.0.0\\system.text.encodings.web.5.0.0.nupkg.sha512",
+    "C:\\Users\\akhad\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512",
     "C:\\Users\\akhad\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\akhad\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\akhad\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",

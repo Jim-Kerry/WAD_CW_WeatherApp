@@ -45,7 +45,7 @@ namespace DAL_7224.Migrations
 
                     b.HasKey("DayForecastId");
 
-                    b.ToTable("DayForecast");
+                    b.ToTable("DayForecasts");
                 });
 
             modelBuilder.Entity("DAL_7224.DBO.HourForecast", b =>

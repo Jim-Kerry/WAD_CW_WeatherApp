@@ -14,7 +14,7 @@ namespace DAL_7224.DBO
 
         }
 
-        public DbSet<DayForecast> DayForecast { get; set; }
-        public DbSet<HourForecast> HourForecasts { get; set; }
+        public virtual DbSet<DayForecast> DayForecasts { get; set; }
+        public virtual DbSet<HourForecast> HourForecasts { get; set; }
     }
 }

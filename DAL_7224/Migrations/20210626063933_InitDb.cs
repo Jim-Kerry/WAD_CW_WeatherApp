@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL_7224.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "DayForecast",
+                name: "DayForecasts",
                 columns: table => new
                 {
                     DayForecastId = table.Column<int>(type: "int", nullable: false)
@@ -21,7 +21,7 @@ namespace DAL_7224.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DayForecast", x => x.DayForecastId);
+                    table.PrimaryKey("PK_DayForecasts", x => x.DayForecastId);
                 });
 
             migrationBuilder.CreateTable(
@@ -40,9 +40,9 @@ namespace DAL_7224.Migrations
                 {
                     table.PrimaryKey("PK_HourForecasts", x => x.HourForecastId);
                     table.ForeignKey(
-                        name: "FK_HourForecasts_DayForecast_DayForecastId",
+                        name: "FK_HourForecasts_DayForecasts_DayForecastId",
                         column: x => x.DayForecastId,
-                        principalTable: "DayForecast",
+                        principalTable: "DayForecasts",
                         principalColumn: "DayForecastId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -59,7 +59,7 @@ namespace DAL_7224.Migrations
                 name: "HourForecasts");
 
             migrationBuilder.DropTable(
-                name: "DayForecast");
+                name: "DayForecasts");
         }
     }
 }
