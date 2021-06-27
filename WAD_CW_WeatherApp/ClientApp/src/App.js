@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Link } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Home } from './components/Home';
@@ -6,13 +6,29 @@ import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
 import Card from "./components/Card/Card";
 import Switch from 'react-switch'
+import axios from 'axios';
 
 import './custom.css'
 import DayForm from './components/DayForm/DayForm.component';
 
 const App = () => {
-    const [data, setData] = useState(sample_data);
+    const [data, setData] = useState(null);
     const [adminMode, setAdminMode] = useState(true);
+
+    //let's follow SRP: the funtion is responsible for only loading data
+    const loadData = () => {
+        axios({
+            url: '/api/DayForecasts'
+        }).then(res => {
+            //console.log(res);
+            setData(res.data);
+        }).catch(e => {
+            console.log(e);
+        })
+    }
+    useEffect(() => {
+        loadData();
+    }, [])
 
     return (
         <Layout>
@@ -25,12 +41,14 @@ const App = () => {
                         style={{ display: 'flex', justifyContent: 'space-around', width: '60%', margin: '30px auto' }}>
                         {
                             //when data is not fetched or still fetching, it must not crash
-                            data?.map((item, idx) => <Link
+                            data?.filter((item, index) => new Date(item.dayTime).getTime() >= new Date().getTime() - 24 * 60 * 60 * 100 && index < 6)
+                                .sort((a, b) => new Date(a.dayTime).getTime() - new Date(b.dayTime).getTime() )
+                                    .map((item, idx) => <Link
                                 key={`link-${idx}`}
-                                to={`/${item.DayForecastId}`}
+                                to={`/${item.dayForecastId}`}
                                 style={{ color: '#000', textDecoration: 'none' }}>
                                 {
-                                    <Card {...item} Time={ item.Date} key={idx} />
+                                    <Card {...item} Time={ item.dayTime} key={idx} />
                                 }
 
                             </Link>) ?? 'Loading...'
@@ -57,7 +75,7 @@ const App = () => {
             />
             {
                 adminMode ? 
-                    <DayForm />
+                    <DayForm loadData={ loadData } />
                     : null
             }
         </Layout>

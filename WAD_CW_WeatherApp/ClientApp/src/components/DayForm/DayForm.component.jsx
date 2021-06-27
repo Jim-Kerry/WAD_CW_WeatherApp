@@ -2,10 +2,26 @@
 import CustomButton from '../CustomButton/CustomButton.component';
 import FormInput from '../FormInput/FormInput.component';
 import Select from 'react-select'
+import axios from 'axios';
 
-const DayForm = () => {
+const DayForm = ({ loadData }) => {
 
     const [formValues, setFormValues] = useState({});
+
+    const handleFormSubmit = () => {
+        console.log(formValues);
+        axios({
+            url: '/api/DayForecasts',
+            method: 'post',
+            data: formValues
+        }).then(res => {
+            loadData();
+            console.log(res)
+        }).catch(e => {
+            console.error(e);
+            //alert("Error occured!");
+        })
+    }
 
     const handleChange = e => {
         const { name, value } = e.target;
@@ -17,7 +33,7 @@ const DayForm = () => {
 
     const fields = [
         {
-            name: "Date",
+            name: "DayTime",
             label: "Date",
             type: 'date'
         },
@@ -39,9 +55,10 @@ const DayForm = () => {
         {
             fields.map((field, index) => <FormInput key={ index} handleChange={handleChange} {...field} value={ formValues[field.name] } />)
         }
-        <Select 
+        <Select
+            onChange={val => setFormValues({ ...formValues, WeatherCode: val.value})}
             options={available_images.map(val=>({value: val, label: <img style={{height: 40, width: 40}} src={`./${val}`} />}))} />
-        <CustomButton default>Submit</CustomButton>
+        <CustomButton onClick={ handleFormSubmit } default>Submit</CustomButton>
         </div>
 }
 

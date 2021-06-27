@@ -11,7 +11,7 @@ namespace DAL_7224.Repositories
         Task UpdateAsync(T entity);
         Task InsertAsync(T entity);
         Task DeleteAsync(int id);
-        Boolean Exists(int id);
         Task<T> FindOneAsync(int id);
+        bool Exists(int id);
     }
 }

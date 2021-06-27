@@ -12,7 +12,7 @@ namespace DAL_7224.DBO
         public int DayForecastId { get; set; }
 
         [Required]
-        public int DayTime { get; set; }
+        public DateTime DayTime { get; set; }
         
         [Required]
         [MaxLength(250)]

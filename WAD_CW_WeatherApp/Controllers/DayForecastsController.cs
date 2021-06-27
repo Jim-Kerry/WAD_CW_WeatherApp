@@ -37,8 +37,17 @@ namespace WAD_CW_WeatherApp.Controllers
 
         // POST api/<DayForecastsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<DayForecast>> Post(DayForecast dayForecast)
         {
+            try
+            {
+                await repository.InsertAsync(dayForecast);
+                return CreatedAtAction("GetBlog", new { id = dayForecast.DayForecastId }, dayForecast);
+            }catch(Exception e)
+            {
+                throw;
+            }
+            
         }
 
         // PUT api/<DayForecastsController>/5

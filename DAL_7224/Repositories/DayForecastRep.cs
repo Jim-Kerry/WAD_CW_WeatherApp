@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,14 +34,6 @@ namespace DAL_7224.Repositories
             return await forecastDBContext.DayForecasts.ToListAsync();
         }
 
-        public Task InsertAsync(DayForecast entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateAsync(DayForecast entity)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

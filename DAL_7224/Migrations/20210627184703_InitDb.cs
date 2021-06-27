@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL_7224.Migrations
 {
-    public partial class InitialDb : Migration
+    public partial class InitDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +13,7 @@ namespace DAL_7224.Migrations
                 {
                     DayForecastId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DayTime = table.Column<int>(type: "int", nullable: false),
+                    DayTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Weather = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     WeatherCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     MinTeperature = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
