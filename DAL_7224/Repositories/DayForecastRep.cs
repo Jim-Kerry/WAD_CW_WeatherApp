@@ -14,9 +14,18 @@ namespace DAL_7224.Repositories
         {
 
         }
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var d = await forecastDBContext.DayForecasts.FindAsync(id);
+                forecastDBContext.DayForecasts.Remove(d);
+                await forecastDBContext.SaveChangesAsync();
+            }catch(Exception e)
+            {
+                throw e;
+            }
+            
         }
 
         public bool Exists(int id)
@@ -24,9 +33,9 @@ namespace DAL_7224.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<DayForecast> FindOneAsync(int id)
+        public async Task<DayForecast> FindOneAsync(int id)
         {
-            throw new NotImplementedException();
+            return await forecastDBContext.DayForecasts.FirstOrDefaultAsync(day => day.DayForecastId == id);
         }
 
         public async Task<List<DayForecast>> GetAllAsnc()

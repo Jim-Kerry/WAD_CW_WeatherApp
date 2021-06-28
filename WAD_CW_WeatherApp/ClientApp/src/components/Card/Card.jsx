@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
-const Card = ({ weatherCode, minTeperature, maxTeperature, teperature, dayTime }) => {
+const Card = ({ weatherCode, minTeperature, maxTeperature, teperature, dayTime, hour, weather }) => {
 
 
-    let day_index = new Date(dayTime).getDay();
+    let day_index = hour ?? moment(dayTime).format('DD MMM');
 
     return (
             <div 
@@ -12,10 +13,10 @@ const Card = ({ weatherCode, minTeperature, maxTeperature, teperature, dayTime }
             style={{ border: '1px #999 solid', borderRadius: 11, cursor: 'pointer', minHeight: 106, minWidth: 106, margin: 3}}>
             <div style={{padding: 8, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <div>
-                    <strong>{DayIndex[day_index].short}</strong>
+                    <strong>{day_index}</strong>
                 </div>
                 <div>
-                    <img src={`./${weatherCode}`} alt="weather img" width={60} height={60} />
+                    <img title={ weather} src={`./${weatherCode}`} alt="weather img" width={60} height={60} />
                 </div>
                 {
                     teperature ? <div style={{textAlign: 'center'}}>{teperature}{'\u00b0'}</div>

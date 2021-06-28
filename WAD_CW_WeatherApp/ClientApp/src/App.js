@@ -10,53 +10,18 @@ import axios from 'axios';
 
 import './custom.css'
 import DayForm from './components/DayForm/DayForm.component';
+import Hourly from './components/Hourly/Hourly';
+import Daily from './components/Daily/Daily';
 
 const App = () => {
-    const [data, setData] = useState(null);
+    
     const [adminMode, setAdminMode] = useState(true);
 
     //let's follow SRP: the funtion is responsible for only loading data
-    const loadData = () => {
-        axios({
-            url: '/api/DayForecasts'
-        }).then(res => {
-            //console.log(res);
-            setData(res.data);
-        }).catch(e => {
-            console.log(e);
-        })
-    }
-    useEffect(() => {
-        loadData();
-    }, [])
+    
 
     return (
         <Layout>
-            <Route
-                key="daily"
-                path="/"
-                exact
-                render={() => (
-                    <div
-                        style={{ display: 'flex', justifyContent: 'space-around', width: '60%', margin: '30px auto' }}>
-                        {
-                            //when data is not fetched or still fetching, it must not crash
-                            data?.filter((item, index) => new Date(item.dayTime).getTime() >= new Date().getTime() - 24 * 60 * 60 * 100 && index < 6)
-                                .sort((a, b) => new Date(a.dayTime).getTime() - new Date(b.dayTime).getTime() )
-                                    .map((item, idx) => <Link
-                                key={`link-${idx}`}
-                                to={`/${item.dayForecastId}`}
-                                style={{ color: '#000', textDecoration: 'none' }}>
-                                {
-                                    <Card {...item} Time={ item.dayTime} key={idx} />
-                                }
-
-                            </Link>) ?? 'Loading...'
-                        }
-                    </div>)} />
-            <Route path='/:DayForecastId' render={ ()=><div>Hi</div>} />
-            <Route path='/sample/counter' component={Counter} />
-            <Route path='/sample/fetch-data' component={FetchData} />
             <div>Admin mode</div>
             <Switch
                 checked={adminMode}
@@ -73,11 +38,14 @@ const App = () => {
                 className="react-switch"
                 id="material-switch"
             />
-            {
-                adminMode ? 
-                    <DayForm loadData={ loadData } />
-                    : null
-            }
+            <Route exact path="/" exact render={() => <Daily isAdmin={adminMode} /> }/>
+            <Route exact path='/:DayForecastId' render={() => <Hourly isAdmin={adminMode} />} />
+            <Route exact path='/sample/counter' component={Counter} />
+            <Route exact path='/sample/fetch-data' component={FetchData} />
+            <Route exact path='/DayForecast/Edit/:EditItemId' render= {({ history }) => <DayForm loadData={ ()=>history.goBack() } />} />
+            
+            
+            
         </Layout>
     );
 }

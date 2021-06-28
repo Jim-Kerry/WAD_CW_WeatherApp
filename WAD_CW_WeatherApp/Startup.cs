@@ -27,6 +27,7 @@ namespace WAD_CW_WeatherApp
 
             services.AddControllers();
             services.AddScoped<IRepository<DayForecast>, DayForecastRep>();
+            services.AddScoped<IRepository<HourForecast>, HourForecastRep>();
             services.AddDbContext<ForecastDBContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ForecastDb")));
 
             // In production, the React files will be served from this directory

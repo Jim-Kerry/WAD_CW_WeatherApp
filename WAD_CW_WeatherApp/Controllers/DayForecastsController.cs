@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WAD_CW_WeatherApp.Controllers
@@ -30,9 +31,9 @@ namespace WAD_CW_WeatherApp.Controllers
 
         // GET api/<DayForecastsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<DayForecast> Get(int id)
         {
-            return "value";
+            return await repository.FindOneAsync(id);
         }
 
         // POST api/<DayForecastsController>
@@ -42,7 +43,7 @@ namespace WAD_CW_WeatherApp.Controllers
             try
             {
                 await repository.InsertAsync(dayForecast);
-                return CreatedAtAction("GetBlog", new { id = dayForecast.DayForecastId }, dayForecast);
+                return CreatedAtAction("GetDayForecast", new { id = dayForecast.DayForecastId }, dayForecast);
             }catch(Exception e)
             {
                 throw;
@@ -52,14 +53,31 @@ namespace WAD_CW_WeatherApp.Controllers
 
         // PUT api/<DayForecastsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, DayForecast value)
         {
+            if(id != value.DayForecastId)
+            {
+                return BadRequest();
+            }
+            await repository.UpdateAsync(value);
+
+            return NoContent();
         }
 
         // DELETE api/<DayForecastsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var d = repository.FindOneAsync(id);
+            if (d == null)
+            {
+                return NotFound();
+            }
+
+
+            await repository.DeleteAsync(id);
+
+            return NoContent();
         }
     }
 }
